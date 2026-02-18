@@ -1,0 +1,34 @@
+# Dados pessoais — NUNCA commitar
+user_state.json
+*_user_state.json
+test_user_state.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Temporários
+*.tmp
+*.bak
+zicvr2ea

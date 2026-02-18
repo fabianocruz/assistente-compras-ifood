@@ -1,0 +1,84 @@
+{
+  "skill_name": "assistente-compras-ifood",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Oi, quero fazer compras no iFood Mercado. Nunca usei esse assistente antes.",
+      "expected_output": "Skill deve detectar que não há user_state.json, iniciar onboarding com no máximo 6 perguntas, e criar o arquivo de estado do usuário.",
+      "files": [],
+      "assertions": [
+        "A resposta verifica ou menciona a ausência do user_state.json",
+        "A resposta faz perguntas de onboarding (endereço, pessoas, prioridade)",
+        "A resposta NÃO faz mais de 6 perguntas",
+        "A resposta NÃO contém dados pessoais de outro usuário",
+        "A resposta menciona criar ou inicializar o perfil do usuário"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Quero fazer mercado no iFood. Qual supermercado você recomenda na minha região?",
+      "expected_output": "Skill deve navegar para ifood.com.br/mercados, listar mercados disponíveis na região do usuário com nome, avaliação, distância, taxa e tempo de entrega. Deve recomendar com base no perfil (economy/balance/quality) e perguntar qual o usuário prefere.",
+      "files": [],
+      "assertions": [
+        "A resposta lista ou menciona múltiplos mercados disponíveis",
+        "A resposta inclui dados como taxa de entrega, tempo estimado ou avaliação",
+        "A resposta faz uma recomendação baseada no perfil do usuário",
+        "A resposta pergunta ao usuário qual mercado prefere antes de prosseguir",
+        "A resposta menciona salvar a escolha para próximas compras"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Não achei o feijão que eu sempre compro. O que você sugere?",
+      "expected_output": "Skill deve aplicar regras de substituição: oferecer 2-3 alternativas com trade-offs claros e perguntar qual o usuário prefere.",
+      "files": ["references/substitution_rules.md"],
+      "assertions": [
+        "A resposta oferece pelo menos 2 opções de substituição",
+        "A resposta mantém a mesma categoria do produto original",
+        "A resposta explica trade-offs entre as opções (preço, marca, qualidade)",
+        "A resposta menciona registrar a escolha do usuário para aprender",
+        "A resposta NÃO escolhe automaticamente sem perguntar ao usuário"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Já fiz 4 compras no Prezunic. Será que tem mercado mais barato pra minha lista?",
+      "expected_output": "Skill deve reconhecer que é hora de recomparar (4 compras desde última comparação), navegar para 2-3 mercados, comparar itens-chave e apresentar tabela com totais + taxa de entrega.",
+      "files": [],
+      "assertions": [
+        "A resposta reconhece que é hora de comparar com outros mercados",
+        "A resposta compara ou propõe comparar preços entre 2+ lojas",
+        "A resposta inclui taxa de entrega no cálculo total",
+        "A resposta apresenta dados em formato tabular ou estruturado",
+        "A resposta pergunta ao usuário se quer trocar de mercado após ver os resultados"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Quero comprar Feijão Preto Super Máximo 2Kg, mas não consigo achar no iFood.",
+      "expected_output": "Skill deve executar busca progressiva (nome completo → sem tamanho → só categoria), encontrar alternativas disponíveis, calcular equivalência de tamanho (2x1Kg vs 5Kg em R$/kg), apresentar opções com trade-offs e perguntar ao usuário qual prefere.",
+      "files": ["references/substitution_rules.md"],
+      "assertions": [
+        "A resposta demonstra ter tentado busca progressiva (múltiplos termos)",
+        "A resposta apresenta alternativas de feijão preto disponíveis",
+        "A resposta calcula ou menciona equivalência de tamanho (ex: 2x1Kg para cobrir 2Kg)",
+        "A resposta normaliza preço por kg ao comparar tamanhos diferentes",
+        "A resposta NÃO escolhe automaticamente — pergunta ao usuário qual opção prefere",
+        "A resposta registra ou menciona registrar a substituição no histórico"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Vamos fazer as compras no iFood. Pode começar a montar o carrinho.",
+      "expected_output": "Skill deve verificar estado do carrinho antes de adicionar itens. Se houver itens antigos, informar o usuário e aguardar decisão. Ao final de cada item, informar o progresso em relação ao pedido mínimo da loja.",
+      "files": ["references/browser_patterns.md"],
+      "assertions": [
+        "A resposta verifica ou menciona verificar o estado atual do carrinho",
+        "A resposta informa o usuário caso haja itens pré-existentes no carrinho",
+        "A resposta acompanha ou menciona acompanhar o progresso em direção ao pedido mínimo",
+        "A resposta inclui taxa de entrega no resumo final do carrinho",
+        "A resposta apresenta subtotal + frete + total com entrega no sumário"
+      ]
+    }
+  ]
+}
