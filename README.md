@@ -33,30 +33,29 @@ Um skill para o [Claude Cowork](https://claude.ai) que transforma o processo de 
 
 ## Instalação
 
-### Opção A — CLI (recomendada)
+### Opção A — npx (recomendada)
 
-Instale como skill global (disponível em todos os projetos):
+```bash
+npx skills add fabianocruz/assistente-compras-ifood --skill assistente-compras-ifood
+```
+
+Para instalar globalmente:
+
+```bash
+npx skills add fabianocruz/assistente-compras-ifood --skill assistente-compras-ifood -g
+```
+
+### Opção B — Manual
 
 ```bash
 git clone https://github.com/fabianocruz/assistente-compras-ifood.git
-cp -r assistente-compras-ifood/assistente-compras-ifood ~/.claude/skills/assistente-compras-ifood
+cp -r assistente-compras-ifood/skills/assistente-compras-ifood ~/.claude/skills/
 ```
 
-Ou instale apenas no projeto atual:
+### Opção C — Arquivo `.skill`
 
-```bash
-git clone https://github.com/fabianocruz/assistente-compras-ifood.git
-mkdir -p .claude/skills
-cp -r assistente-compras-ifood/assistente-compras-ifood .claude/skills/assistente-compras-ifood
-```
-
-O Claude Code descobre automaticamente skills em `~/.claude/skills/` e `.claude/skills/`.
-
-### Opção B — Arquivo `.skill`
-
-1. Baixe o arquivo [`assistente-compras-ifood.skill`](./assistente-compras-ifood.skill) da seção [Releases](../../releases)
-2. No Cowork, abra as configurações de Skills
-3. Importe o arquivo `.skill`
+1. Baixe [`assistente-compras-ifood.skill`](./assistente-compras-ifood.skill) da seção [Releases](../../releases)
+2. No Cowork, abra as configurações de Skills e importe o arquivo
 
 ---
 
@@ -97,19 +96,20 @@ assistente-compras-ifood/
 ├── assistente-compras-ifood.skill      # Skill empacotada (instalável)
 ├── README.md
 ├── LICENSE
-└── assistente-compras-ifood/           # Código-fonte da skill
-    ├── SKILL.md                        # Documento principal (instruções para o Claude)
-    ├── references/
-    │   ├── user_state_schema.md        # Schema completo do JSON de memória
-    │   ├── substitution_rules.md       # Regras de substituição por categoria
-    │   ├── browser_patterns.md         # Padrões de automação (iFood e Prezunic)
-    │   └── user_state.json             # Template vazio para novos usuários
-    ├── scripts/
-    │   ├── init_user_state.py          # Cria user_state.json para novo usuário
-    │   ├── update_user_state.py        # Atualiza histórico de forma segura
-    │   └── normalize_price.py          # Normalização de preços (R$/kg, R$/L)
-    └── evals/
-        └── evals.json                  # Casos de teste para validação
+└── skills/
+    └── assistente-compras-ifood/       # Código-fonte da skill
+        ├── SKILL.md                    # Documento principal (instruções para o Claude)
+        ├── references/
+        │   ├── user_state_schema.md    # Schema completo do JSON de memória
+        │   ├── substitution_rules.md   # Regras de substituição por categoria
+        │   ├── browser_patterns.md     # Padrões de automação (iFood e Prezunic)
+        │   └── user_state.json         # Template vazio para novos usuários
+        ├── scripts/
+        │   ├── init_user_state.py      # Cria user_state.json para novo usuário
+        │   ├── update_user_state.py    # Atualiza histórico de forma segura
+        │   └── normalize_price.py      # Normalização de preços (R$/kg, R$/L)
+        └── evals/
+            └── evals.json              # Casos de teste para validação
 ```
 
 ---
