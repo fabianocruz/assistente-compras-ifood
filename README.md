@@ -33,23 +33,30 @@ Um skill para o [Claude Cowork](https://claude.ai) que transforma o processo de 
 
 ## Instalação
 
-### Opção A — Arquivo `.skill` (recomendada)
+### Opção A — CLI (recomendada)
+
+Instale como skill global (disponível em todos os projetos):
+
+```bash
+git clone https://github.com/fabianocruz/assistente-compras-ifood.git
+cp -r assistente-compras-ifood/assistente-compras-ifood ~/.claude/skills/assistente-compras-ifood
+```
+
+Ou instale apenas no projeto atual:
+
+```bash
+git clone https://github.com/fabianocruz/assistente-compras-ifood.git
+mkdir -p .claude/skills
+cp -r assistente-compras-ifood/assistente-compras-ifood .claude/skills/assistente-compras-ifood
+```
+
+O Claude Code descobre automaticamente skills em `~/.claude/skills/` e `.claude/skills/`.
+
+### Opção B — Arquivo `.skill`
 
 1. Baixe o arquivo [`assistente-compras-ifood.skill`](./assistente-compras-ifood.skill) da seção [Releases](../../releases)
 2. No Cowork, abra as configurações de Skills
 3. Importe o arquivo `.skill`
-4. Pronto — o skill aparecerá disponível nas sessões
-
-### Opção B — Código-fonte
-
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/SEU_USUARIO/assistente-compras-ifood.git
-   ```
-2. Copie a pasta `assistente-compras-ifood/` para o diretório de skills do Cowork:
-   ```bash
-   cp -r assistente-compras-ifood/assistente-compras-ifood ~/.skills/skills/
-   ```
 
 ---
 
