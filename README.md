@@ -1,4 +1,19 @@
-# 🛒 Assistente de Compras – iFood Mercado
+```
+╔══════════════════════════════════════════════════════════════════╗
+║                                                                  ║
+║    🛒  A S S I S T E N T E   D E   C O M P R A S                 ║
+║    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━                     ║
+║    Mercado Online • Claude Skill • Open Source                   ║
+║                                                                  ║
+║    >> Compara preços entre lojas automaticamente                 ║
+║    >> Lembra suas marcas e preferências                          ║
+║    >> Substituições inteligentes quando falta um produto         ║
+║    >> Monta o carrinho inteiro — você só confere e paga          ║
+║                                                                  ║
+║    $                                                             ║
+║                                                                  ║
+╚══════════════════════════════════════════════════════════════════╝
+```
 
 > **Claude Cowork Skill** — Automação inteligente de compras de supermercado via iFood Mercado e Prezunic, com memória de preferências, substituições automáticas e comparação de preços entre lojas.
 
